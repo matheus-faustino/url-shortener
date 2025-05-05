@@ -36,8 +36,8 @@ Access the application at: http://localhost:8000
 - **Response**:
   ```json
   {
-    "message": "URL encurtada com sucesso",
-    "shortUrl": "http://localhost:8080/api/redirect.php?code=Ab3X9z",
+    "message": "URL shortened with success",
+    "shortUrl": "http://localhost:8080/api/redirect.php/Ab3X9z",
     "shortCode": "Ab3X9z"
   }
   ```
