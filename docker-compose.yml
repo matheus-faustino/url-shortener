@@ -1,0 +1,30 @@
+services:
+  php:
+    build: .
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - mysql
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user
+      - MYSQL_DB=url_shortener
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=url_shortener
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user
+
+volumes:
+  mysql_data:
